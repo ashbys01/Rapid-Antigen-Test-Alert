@@ -1,10 +1,10 @@
 # Rapid-Antigen-Test-Alert
 A script to scrape the https://findarat.com.au/ site to alert via Pushover if a test is available in your list of suburbs
 <h1>Dependencies</h1>
-Valid license details with RTA NSW after you have passed knowledge test, hazard test etc.
-chrome driver executable in your PATH variable
-Python3 with Selenium, Asyncio & Discord.py installed
-Usage
+- chrome driver executable in your PATH variable
+- Python3 with Selenium installed
+
+<h1>Usage</h1>
 Clone the repo
 
 git clone https://github.com/firejoust/rta_booking_information_discord
