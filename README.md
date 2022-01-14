@@ -3,8 +3,8 @@ A script to scrape the https://findarat.com.au/ site to alert you via Pushover i
 
 ## Dependencies
 
- 2. [chrome driver](https://sites.google.com/chromium.org/driver/) executable in your PATH variable
- 3. Python3 with Selenium with msedge.selenium_tools, http.client and urllib installed
+ 1. [chrome driver](https://sites.google.com/chromium.org/driver/) executable in your PATH variable
+ 2. Python3 with Selenium with msedge.selenium_tools, http.client and urllib installed
 
 ## Usage
 
