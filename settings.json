@@ -1,0 +1,10 @@
+{
+    "user_key": "Pushover User Key",
+    "token": "Pushover Application API Token/Key",
+    "wait_timer": 5,
+    "refresh_timer": 30,
+    "locations":[
+      "Epping",
+      "Turramurra"
+    ]
+  }
