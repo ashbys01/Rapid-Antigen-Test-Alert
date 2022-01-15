@@ -24,9 +24,13 @@ cp settings_sample.json settings.json
 ```
 
 Firstly, acquire a 'Pushover User Key' from https://pushover.net/. Create a new application and aquire the applications 'API Token/Key'.
+
 Add your suburb details. Note: all three parameters are required in order to only return one suburb.
-Include the search raduis in Kms.
+
+Include the search radius in Kms.
+
 Wait timer is how long the script will wait for the site to load in seconds.
+
 Refresh timer is how often (after searching through suburbs) that the script should restart in minutes.
 
 Run the script (for bash based systems e.g. mac/linux/WSL)
