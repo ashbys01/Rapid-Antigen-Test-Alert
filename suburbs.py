@@ -32,3 +32,5 @@ def getSuburbs():
     for suburb in suburblist:
         s.append(suburb["name"])
     return s
+    # Remove Duplicates
+    return list(set(s))
