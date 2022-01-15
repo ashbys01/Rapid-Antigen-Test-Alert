@@ -3,8 +3,8 @@
     "token": "Pushover Application API Token/Key",
     "wait_timer": 5,
     "refresh_timer": 30,
-    "locations":[
-      "Epping",
-      "Turramurra"
-    ]
+    "radius": 5,
+    "suburb": "Your Suburb",
+    "postcode": "Your Postcode",
+    "state": "Your State"
   }
