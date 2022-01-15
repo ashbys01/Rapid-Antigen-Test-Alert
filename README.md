@@ -1,5 +1,5 @@
 # Rapid-Antigen-Test-Alert
-A script to scrape the https://findarat.com.au/ site to alert you via Pushover if a RAT test is in stock within X kilometers of your suburb reported within the last hour.
+A script to scrape the https://findarat.com.au/ site to alert you via [Pushover](https://pushover.net/) if a RAT test is in stock within X kilometers of your suburb reported within the last hour.
 
 ## Dependencies
 
