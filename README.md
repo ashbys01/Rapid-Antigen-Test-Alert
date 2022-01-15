@@ -1,10 +1,10 @@
 # Rapid-Antigen-Test-Alert
-A script to scrape the https://findarat.com.au/ site to alert you via Pushover if a RAT test is in stock within your list of suburbs reported within the last hour.
+A script to scrape the https://findarat.com.au/ site to alert you via Pushover if a RAT test is in stock within X kilometers of your suburb reported within the last hour.
 
 ## Dependencies
 
  1. [chrome driver](https://sites.google.com/chromium.org/driver/) executable in your PATH variable
- 2. Python3 with Selenium with msedge.selenium_tools, http.client and urllib installed
+ 2. Python3 with Selenium with msedge.selenium_tools, http.client and urllib, requests installed
 
 ## Usage
 
@@ -24,7 +24,10 @@ cp settings_sample.json settings.json
 ```
 
 Firstly, acquire a 'Pushover User Key' from https://pushover.net/. Create a new application and aquire the applications 'API Token/Key'.
-Change the suburbs you wish to search. Wait timer is how long the script will wait for the site to load in seconds. Refresh timer is how often (after searching through suburbs) that the script should restart in minutes.
+Add your suburb details. Note: all three parameters are required in order to only return one suburb.
+Include the search raduis in Kms.
+Wait timer is how long the script will wait for the site to load in seconds.
+Refresh timer is how often (after searching through suburbs) that the script should restart in minutes.
 
 Run the script (for bash based systems e.g. mac/linux/WSL)
 ```
