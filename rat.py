@@ -1,10 +1,12 @@
 #!/bin/bash
 import time
 import json
+import requests
 # selenium webdriver
 from selenium import webdriver
+from selenium.common.exceptions import TimeoutException, SessionNotCreatedException, NoSuchWindowException
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.ui import Select, WebDriverWait
 from selenium.webdriver.support.expected_conditions import *
 from msedge.selenium_tools import EdgeOptions
 from msedge.selenium_tools import Edge
@@ -14,10 +16,11 @@ import http.client, urllib
 # The RATS!
 from ratart import *
 
-# Get Settings variables
+#Surrounding Suburbs
+from suburbs import getSuburbs
+
 settings = json.load(open("settings.json"))
 
-# Pushover Script
 def pushme( title, message):
     conn = http.client.HTTPSConnection("api.pushover.net:443")
     conn.request("POST", "/1/messages.json",
@@ -32,25 +35,22 @@ def pushme( title, message):
 def init():
     global driver
     current_time = time.localtime()
-
     # assign headless driver for site navigation
     options = EdgeOptions()
     options.use_chromium = True
+    # options.headless = True
     options.add_argument('headless')
     options.add_argument('disable-gpu')
     options.add_argument("--log-level=3")
+    # create the driver with timeout management
     driver = Edge(options=options)
 
-    # Get Locations from Settings
-    locations = settings["locations"]
+    locations = getSuburbs()
     locations.insert(0,"")
-
-    #set timings
-    minutes = settings['refresh_timer']
     wait = WebDriverWait(driver, settings['wait_timer'])
-
+    minutes = settings['refresh_timer']
     # Lets Go
-    print('Opening Find a RAT...')
+    print("Opening 'Find a RAT' and searching suburbs within "+str(settings["radius"])+"km of "+settings["suburb"])
     theRat()
     driver.get("https://findarat.com.au/")
     while True: # Keep it going
@@ -65,6 +65,8 @@ def init():
             print(f'Searching {location}...')
             locs+=1
             locats = driver.find_elements(By.CLASS_NAME, "css-fiqz9x")
+            
+            # result = driver.find_element_by_selector("css-14dtuui").text
             if (locats):
                 for e in locats:
                     result = []
@@ -89,6 +91,7 @@ def init():
             ratFound()
             loc = str(f"Found a RAT at {len(results)} location(s):")
             print(time.strftime('%I:%M %p', current_time)+"  "+loc)
+            # print(loc)
             rats=""
             for p in results:
                 rat = "\n".join(p)
