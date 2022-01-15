@@ -31,6 +31,5 @@ def getSuburbs():
     s = []
     for suburb in suburblist:
         s.append(suburb["name"])
-    return s
-    # Remove Duplicates
+    # Remove Duplicate suburbs
     return list(set(s))
